@@ -1,0 +1,14 @@
+What is RAG?
+
+Retrieval-Augmented Generation (RAG) is a way to make an AI assistant answer questions using your own documents instead of only using what the model memorized during training.
+
+A beginner-friendly RAG pipeline has four steps:
+
+1. Load documents such as PDFs, notes, manuals, or FAQs.
+2. Split those documents into smaller overlapping chunks. Smaller chunks are easier to search and fit inside a prompt.
+3. Convert each chunk into an embedding, which is a list of numbers that represents meaning. Similar sentences end up close together in this vector space.
+4. When a user asks a question, convert the question into an embedding too, find the nearest chunks, and send those chunks plus the question to a large language model.
+
+The language model then writes an answer grounded in the retrieved text. That is why RAG reduces hallucinations compared with asking the model to guess.
+
+This sample document exists so you can try the app immediately. Ask: "What is RAG in simple words?"

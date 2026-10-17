@@ -1,0 +1,23 @@
+Gemini, ChromaDB, and this project
+
+Google Gemini is used in two places:
+
+- text-embedding-004 turns chunk text and user questions into vectors.
+- gemini-2.0-flash reads the retrieved chunks and writes a natural-language answer.
+
+ChromaDB is the vector database. It stores:
+- the original chunk text
+- the embedding vector
+- metadata such as filename and chunk index
+
+When you upload a file, the Node.js server extracts text, chunks it, asks Gemini for embeddings, and saves everything in a Chroma collection named rag_documents.
+
+When you ask a question, the server:
+1. Embeds the question with Gemini.
+2. Queries ChromaDB for the closest chunks using cosine similarity.
+3. Builds a prompt that includes those chunks as sources.
+4. Asks Gemini to answer only from those sources and to cite them.
+
+React is only the user interface. It uploads files, shows the knowledge base, and displays answers with expandable source chunks.
+
+If ChromaDB is not running, retrieval cannot work. Start it with Docker Compose from the project root. If GEMINI_API_KEY is missing, embeddings and answers cannot be created.
