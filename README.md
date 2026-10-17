@@ -67,8 +67,4 @@ Open [http://localhost:5173](http://localhost:5173).
 | `backend/src/rag.js` | Question → retrieve → generate |
 | `frontend/src` | Chat UI, upload panel, source viewer |
 
-## Common issues
 
-- **ChromaDB is not running** — start Docker Desktop, then `docker compose up -d`
-- **Missing GEMINI_API_KEY** — copy `.env.example` and add a key
-- **Model not found** — set `GEMINI_CHAT_MODEL` in `.env` to a model your account can use, such as `gemini-2.0-flash` or `gemini-1.5-flash`
